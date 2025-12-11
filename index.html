@@ -3,217 +3,177 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Brief - Cloud Inventory System</title>
+    <title>Project Brief: CIATS - Cloud Inventory System</title>
     <style>
       :root {
-        --primary: #3b82f6; /* Laravel Blue-ish */
-        --secondary: #ffca28; /* Firebase Yellow-ish */
-        --dark: #1e293b;
-        --light: #f8fafc;
-        --gray: #64748b;
-        --success: #10b981;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --accent-color: #f59e0b;
+        --text-dark: #1f2937;
+        --text-light: #6b7280;
+        --bg-light: #f3f4f6;
+        --bg-white: #ffffff;
+        --border-color: #e5e7eb;
       }
 
       body {
-        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
-        color: var(--dark);
-        background-color: #f1f5f9;
-        padding: 20px;
+        color: var(--text-dark);
+        background-color: var(--bg-light);
+        margin: 0;
+        padding: 40px 20px;
       }
 
       .container {
         max-width: 900px;
         margin: 0 auto;
-        background: white;
+        background: var(--bg-white);
         padding: 40px;
         border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       }
 
-      /* Header */
       header {
-        text-align: center;
-        margin-bottom: 40px;
-        border-bottom: 2px solid #e2e8f0;
+        border-bottom: 2px solid var(--border-color);
         padding-bottom: 20px;
+        margin-bottom: 30px;
+        text-align: center;
       }
 
       h1 {
-        font-size: 2.5rem;
-        color: var(--dark);
-        margin-bottom: 10px;
-      }
-
-      .subtitle {
-        color: var(--gray);
-        font-size: 1.1rem;
-      }
-
-      .status-badge {
-        display: inline-block;
-        background: #dbeafe;
-        color: var(--primary);
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-top: 10px;
-      }
-
-      /* Sections */
-      section {
-        margin-bottom: 40px;
+        color: var(--primary-color);
+        margin: 0;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
       h2 {
-        font-size: 1.5rem;
-        color: var(--dark);
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        border-left: 5px solid var(--primary);
+        color: var(--secondary-color);
+        border-left: 5px solid var(--accent-color);
         padding-left: 15px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        color: var(--text-dark);
+        margin-top: 25px;
       }
 
       p {
         margin-bottom: 15px;
-        color: #334155;
+        color: #374151;
       }
 
-      /* Tech Stack Grid */
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      ul.feature-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+      }
+
+      ul.feature-list li::before {
+        content: "✔";
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+
       .tech-stack {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        display: flex;
         gap: 15px;
-        text-align: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
       }
 
-      .tech-item {
-        background: var(--light);
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #e2e8f0;
+      .tag {
+        background-color: #eff6ff;
+        color: var(--primary-color);
+        padding: 5px 15px;
+        border-radius: 20px;
         font-weight: 600;
+        font-size: 0.9rem;
+        border: 1px solid #bfdbfe;
       }
 
-      .tech-item span {
-        display: block;
-        font-size: 0.8rem;
-        color: var(--gray);
-        font-weight: normal;
-      }
-
-      /* Role Cards */
-      .role-grid {
+      .roles-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
+        margin-top: 20px;
       }
 
       .role-card {
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
         padding: 20px;
+        background-color: #fafafa;
         transition: transform 0.2s;
       }
 
       .role-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-        border-color: var(--primary);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
       }
 
       .role-title {
-        font-weight: 700;
-        color: var(--primary);
+        font-weight: bold;
+        font-size: 1.2rem;
         margin-bottom: 10px;
-        font-size: 1.1rem;
-      }
-
-      .role-list {
-        list-style: none;
-      }
-
-      .role-list li {
-        position: relative;
-        padding-left: 20px;
-        margin-bottom: 8px;
-        font-size: 0.95rem;
-      }
-
-      .role-list li::before {
-        content: "•";
-        color: var(--secondary);
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-      }
-
-      /* User Roles (Admin/Staff) */
-      .user-roles {
+        color: var(--secondary-color);
         display: flex;
-        gap: 20px;
-        margin-bottom: 20px;
+        align-items: center;
+        gap: 10px;
       }
 
-      .user-role-box {
-        flex: 1;
-        background: #f8fafc;
-        padding: 15px;
-        border-left: 4px solid var(--success);
-        border-radius: 0 8px 8px 0;
+      .task-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
       }
 
-      /* Timeline */
-      .timeline-item {
-        display: flex;
-        margin-bottom: 15px;
+      .task-table th,
+      .task-table td {
+        border: 1px solid var(--border-color);
+        padding: 12px;
+        text-align: left;
       }
 
-      .week-badge {
-        background: var(--dark);
+      .task-table th {
+        background-color: var(--primary-color);
         color: white;
-        padding: 5px 15px;
-        border-radius: 6px;
-        font-weight: bold;
-        min-width: 100px;
-        text-align: center;
-        margin-right: 15px;
-        height: fit-content;
       }
 
-      .week-content h4 {
-        margin-bottom: 5px;
-        color: var(--primary);
+      .task-table tr:nth-child(even) {
+        background-color: #f9fafb;
       }
 
-      /* Footer */
-      footer {
-        text-align: center;
+      .footer {
         margin-top: 50px;
-        padding-top: 20px;
-        border-top: 1px solid #e2e8f0;
-        color: var(--gray);
+        text-align: center;
         font-size: 0.9rem;
+        color: var(--text-light);
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
       }
 
-      @media (max-width: 600px) {
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
         .container {
-          padding: 20px;
-        }
-        h1 {
-          font-size: 1.8rem;
-        }
-        .user-roles {
-          flex-direction: column;
+          box-shadow: none;
+          border: none;
+          width: 100%;
+          max-width: 100%;
         }
       }
     </style>
@@ -221,186 +181,202 @@
   <body>
     <div class="container">
       <header>
-        <span class="status-badge">DOCUMENT TYPE: PROJECT BRIEF</span>
-        <h1>CIATS</h1>
-        <div class="subtitle">Cloud Inventory & Asset Tracking System</div>
-        <p style="margin-top: 10px">
-          <strong
-            >Sistem Manajemen Inventaris & Pelacakan Aset Perusahaan</strong
-          >
+        <h1>Project Brief</h1>
+        <p><strong>CIATS: Cloud Inventory & Asset Tracking System</strong></p>
+        <p style="color: var(--text-light)">
+          Revisi Dokumen: Versi 3-Role (Admin, Operator, Karyawan)
         </p>
       </header>
 
-      <section>
-        <h2>1. Ringkasan & Tujuan</h2>
+      <div class="section">
+        <h2>1. Ringkasan Proyek</h2>
         <p>
-          Proyek ini bertujuan membangun aplikasi berbasis web untuk
-          menggantikan pencatatan aset manual. Sistem ini akan mengelola siklus
-          hidup aset perusahaan (Laptop, Furniture, Kendaraan) mulai dari
-          pengadaan, peminjaman (tracking), hingga penghapusan aset.
+          CIATS adalah aplikasi manajemen inventaris berbasis web yang dirancang
+          untuk memodernisasi pencatatan aset perusahaan. Sistem ini
+          menggantikan metode manual dengan database terpusat yang mendukung
+          pelacakan real-time dan request peminjaman mandiri oleh karyawan.
         </p>
-        <p>
-          Tantangan utama adalah sinkronisasi data secara
-          <strong>Real-time</strong> agar stok selalu akurat saat diakses oleh
-          banyak staff sekaligus.
-        </p>
-      </section>
 
-      <section>
-        <h2>2. Teknologi (Tech Stack)</h2>
         <div class="tech-stack">
-          <div class="tech-item">
-            Laravel 10/11
-            <span>Backend Framework</span>
-          </div>
-          <div class="tech-item">
-            Firebase
-            <span>Realtime Database / NoSQL</span>
-          </div>
-          <div class="tech-item">
-            Blade & Bootstrap
-            <span>Frontend UI/UX</span>
-          </div>
-          <div class="tech-item">
-            QR Code
-            <span>Asset Identification</span>
-          </div>
+          <span class="tag">Backend: Laravel 10/11</span>
+          <span class="tag">Database: Firebase (NoSQL)</span>
+          <span class="tag">Frontend: Blade & JS</span>
+          <span class="tag">UI: Bootstrap/Tailwind</span>
         </div>
-      </section>
+      </div>
 
-      <section>
-        <h2>3. Aktor Sistem (User Roles)</h2>
-        <div class="user-roles">
-          <div class="user-role-box">
-            <h3 style="margin-bottom: 5px">👑 Administrator</h3>
-            <p style="font-size: 0.9rem">
-              Hak akses penuh. Bertanggung jawab atas manajemen user, approval
-              penghapusan barang, dan melihat laporan audit.
-            </p>
-          </div>
-          <div class="user-role-box" style="border-left-color: var(--primary)">
-            <h3 style="margin-bottom: 5px">👷 Staff Gudang</h3>
-            <p style="font-size: 0.9rem">
-              Hak akses operasional. Bertugas input barang masuk, scan QR Code,
-              dan melakukan update status peminjaman.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div class="section">
+        <h2>2. Aktor Sistem (User Roles)</h2>
+        <p>
+          Sistem ini dirancang untuk mengakomodasi 3 tingkatan pengguna dengan
+          hak akses yang berbeda:
+        </p>
 
-      <section>
-        <h2>4. Pembagian Tugas Tim (4 Orang)</h2>
-        <div class="role-grid">
-          <!-- Anggota 1 -->
+        <div class="roles-grid">
+          <!-- Role 1: Admin -->
           <div class="role-card">
-            <div class="role-title">👤 Hagi: Team Lead & Backend</div>
-            <ul class="role-list">
-              <li>Setup Project Laravel & Repository.</li>
-              <li>Konfigurasi Koneksi ke Firebase.</li>
-              <li>Desain Struktur JSON Database.</li>
-              <li>Membuat Base Controller & Logika CRUD dasar.</li>
+            <div class="role-title">👑 1. Administrator</div>
+            <p><strong>Akses:</strong> Full Control (Super User).</p>
+            <ul class="feature-list">
+              <li>Manajemen User (Create/Delete akun).</li>
+              <li>Approval/Reject permintaan barang rusak.</li>
+              <li>Akses seluruh Laporan & Audit Log.</li>
+              <li>Konfigurasi Master Data (Kategori/Lokasi).</li>
             </ul>
           </div>
 
-          <!-- Anggota 2 -->
+          <!-- Role 2: Operator -->
           <div class="role-card">
-            <div class="role-title">👤 Erint: Frontend & UI/UX</div>
-            <ul class="role-list">
-              <li>Desain Mockup & Layout (Blade).</li>
-              <li>Integrasi Template Admin (Bootstrap/Tailwind).</li>
-              <li>Membuat Dashboard Statistik yang responsif.</li>
-              <li>Memastikan UX Mobile friendly untuk scanning.</li>
+            <div class="role-title">🛠️ 2. Operator Gudang</div>
+            <p><strong>Akses:</strong> Operasional Harian.</p>
+            <ul class="feature-list">
+              <li>Input Stok Barang Masuk.</li>
+              <li>Proses Check-in & Check-out Barang.</li>
+              <li>Scan QR Code untuk update status.</li>
+              <li>Pelaporan kondisi fisik aset (Foto).</li>
             </ul>
           </div>
 
-          <!-- Anggota 3 -->
+          <!-- Role 3: Karyawan -->
           <div class="role-card">
-            <div class="role-title">👤 Raihan: Feature Dev A (Tracking)</div>
-            <ul class="role-list">
-              <li>Implementasi Library QR Code Generator.</li>
-              <li>Logika Check-in / Check-out Barang.</li>
-              <li>Fitur Pencarian & Filter Aset yang kompleks.</li>
-              <li>Fitur Upload Gambar ke Firebase Storage.</li>
-            </ul>
-          </div>
-
-          <!-- Anggota 4 -->
-          <div class="role-card">
-            <div class="role-title">👤 Alvin: Feature Dev B (Support)</div>
-            <ul class="role-list">
-              <li>Sistem Login & Register (Auth).</li>
-              <li>Manajemen Role (Middleware Admin vs Staff).</li>
-              <li>Export Laporan ke PDF/Excel.</li>
-              <li>Testing Sistem & Dokumentasi User.</li>
+            <div class="role-title">👤 3. Karyawan</div>
+            <p><strong>Akses:</strong> View & Request Only.</p>
+            <ul class="feature-list">
+              <li>Melihat katalog barang yang tersedia.</li>
+              <li>Mengajukan Request Peminjaman (Booking).</li>
+              <li>Melihat status peminjaman pribadi.</li>
+              <li>Melaporkan kerusakan pada aset yang dipegang.</li>
             </ul>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section>
-        <h2>5. Alur Kerja (Workflow)</h2>
-        <ol style="padding-left: 20px; color: #334155">
-          <li style="margin-bottom: 10px">
-            <strong>Input:</strong> Staff scan barang baru atau input manual ->
-            Data tersimpan di Firebase.
+      <div class="section">
+        <h2>3. Fitur Utama & Alur Kerja</h2>
+
+        <h3>A. Manajemen Aset & QR Code</h3>
+        <p>
+          Setiap aset yang didaftarkan akan otomatis mendapatkan QR Code unik.
+          QR Code ini digunakan untuk:
+        </p>
+        <ul class="feature-list">
+          <li>Identifikasi cepat via scan kamera HP/Scanner.</li>
+          <li>Direct link ke halaman detail aset.</li>
+        </ul>
+
+        <h3>B. Alur Peminjaman (Self-Service)</h3>
+        <ol>
+          <li>
+            <strong>Karyawan:</strong> Login -> Cari Barang -> Klik "Request
+            Peminjaman".
           </li>
-          <li style="margin-bottom: 10px">
-            <strong>Labeling:</strong> Sistem mencetak QR Code -> Ditempel di
-            fisik aset.
+          <li>
+            <strong>Operator:</strong> Menerima notifikasi -> Menyiapkan Barang
+            -> Scan QR -> Ubah status jadi "Dipinjam".
           </li>
-          <li style="margin-bottom: 10px">
-            <strong>Tracking:</strong> Saat barang dipinjam, Staff scan QR ->
-            Update status jadi "In Use" -> Lokasi berubah.
-          </li>
-          <li style="margin-bottom: 10px">
-            <strong>Monitoring:</strong> Admin melihat perubahan stok dan lokasi
-            aset secara real-time di Dashboard.
+          <li>
+            <strong>Sistem:</strong> Mengurangi stok tersedia & mencatat riwayat
+            peminjaman.
           </li>
         </ol>
-      </section>
 
-      <section>
-        <h2>6. Timeline Pengerjaan</h2>
-        <div class="timeline-item">
-          <div class="week-badge">Minggu 1</div>
-          <div class="week-content">
-            <h4>Fondasi & Database</h4>
-            <p>
-              Instalasi Laravel, Koneksi Firebase, Struktur Database, Template
-              UI.
-            </p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="week-badge">Minggu 2</div>
-          <div class="week-content">
-            <h4>Fitur Dasar (CRUD)</h4>
-            <p>
-              Login/Register, Input Data Aset, Menampilkan list data, Layouting.
-            </p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="week-badge">Minggu 3</div>
-          <div class="week-content">
-            <h4>Fitur Unggulan</h4>
-            <p>
-              QR Code Generator, Transaksi Peminjaman (Tracking), Upload Gambar.
-            </p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="week-badge">Minggu 4</div>
-          <div class="week-content">
-            <h4>Finalisasi</h4>
-            <p>Export Laporan, Testing, Bug Fixing, Deployment.</p>
-          </div>
-        </div>
-      </section>
+        <h3>C. Pelaporan & Audit</h3>
+        <p>
+          Menyediakan ekspor data ke format PDF/Excel untuk keperluan stok
+          opname bulanan dan laporan aset.
+        </p>
+      </div>
 
-      <footer>
-        <p>Dibuat untuk kebutuhan Project Kelompok - 2025</p>
-      </footer>
+      <div class="section">
+        <h2>4. Pembagian Tugas Tim (4 Orang)</h2>
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th style="width: 25%">Anggota & Peran</th>
+              <th>Tanggung Jawab Utama</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>Hagi</strong><br /><small>Team Lead & Backend</small>
+              </td>
+              <td>
+                <ul>
+                  <li>Setup Laravel & Koneksi Firebase.</li>
+                  <li>Desain JSON Database Structure.</li>
+                  <li>Logic Inti: CRUD Aset & Controller Dasar.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Erint</strong><br /><small>Frontend & UI/UX</small>
+              </td>
+              <td>
+                <ul>
+                  <li>Desain Dashboard (Admin vs User View).</li>
+                  <li>Slicing Template HTML ke Blade.</li>
+                  <li>Membuat Tampilan Katalog Barang (Grid View).</li>
+                  <li>Responsivitas Mobile.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Raihan</strong><br /><small>Tracking Logic</small>
+              </td>
+              <td>
+                <ul>
+                  <li>Fitur QR Code Generator.</li>
+                  <li>Logika Transaksi (Peminjaman & Pengembalian).</li>
+                  <li>Fitur Request Peminjaman (Cart System sederhana).</li>
+                  <li>Pencarian & Filter Data.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Alvin</strong><br /><small>Auth & Reporting</small>
+              </td>
+              <td>
+                <ul>
+                  <li>Middleware (Memisahkan akses 3 Role).</li>
+                  <li>Login/Register & Profil User.</li>
+                  <li>Export Laporan (PDF/Excel).</li>
+                  <li>Testing & Bug Fixing.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h2>5. Timeline Target (4 Minggu)</h2>
+        <ul class="feature-list">
+          <li>
+            <strong>Minggu 1:</strong> Setup Project, Koneksi Database, Mockup
+            UI Selesai.
+          </li>
+          <li>
+            <strong>Minggu 2:</strong> Auth (3 Role) Selesai, CRUD Barang
+            Berjalan.
+          </li>
+          <li>
+            <strong>Minggu 3:</strong> Fitur QR Code, Request Peminjaman, &
+            Transaksi.
+          </li>
+          <li>
+            <strong>Minggu 4:</strong> Laporan PDF, Testing User Flow,
+            Finalisasi.
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2025 Tim Pengembang CIATS | Dokumen Internal</p>
+      </div>
     </div>
   </body>
 </html>
