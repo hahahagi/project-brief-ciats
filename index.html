@@ -3,361 +3,376 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Brief Lengkap - CIATS</title>
+    <title>CIATS - Technical Guidelines</title>
     <style>
       :root {
-        --primary: #2563eb; /* Blue */
-        --secondary: #1e40af; /* Dark Blue */
-        --firebase: #ffca28; /* Yellow */
-        --laravel: #f05340; /* Red */
-        --dark: #0f172a;
-        --light: #f8fafc;
+        --laravel: #ff2d20;
+        --firebase: #ffca28;
+        --primary: #0f172a;
+        --secondary: #334155;
+        --bg: #f8fafc;
+        --card-bg: #ffffff;
         --border: #e2e8f0;
+        --success: #10b981;
+        --warning: #f59e0b;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
         line-height: 1.6;
-        color: var(--dark);
-        background: #f1f5f9;
-        padding: 30px;
+        color: var(--secondary);
+        background-color: var(--bg);
         margin: 0;
+        padding: 40px 20px;
       }
 
       .container {
-        max-width: 960px;
+        max-width: 1000px;
         margin: 0 auto;
-        background: white;
-        padding: 50px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       }
 
-      /* Header */
-      header {
-        border-bottom: 2px solid var(--border);
-        padding-bottom: 20px;
-        margin-bottom: 40px;
+      /* HEADER */
+      .header {
+        text-align: center;
+        margin-bottom: 50px;
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border-bottom: 4px solid var(--laravel);
       }
+
       h1 {
         margin: 0;
         color: var(--primary);
         font-size: 2.5rem;
-        letter-spacing: -1px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
       }
       .subtitle {
         color: #64748b;
         font-size: 1.1rem;
+        margin-top: 10px;
       }
-      .badge {
-        background: #dbeafe;
-        color: var(--primary);
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        text-transform: uppercase;
+      .tech-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff1f2;
+        color: var(--laravel);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        margin-top: 15px;
+        border: 1px solid #fecdd3;
       }
 
-      /* Sections */
+      /* SECTIONS */
       h2 {
+        color: var(--primary);
+        font-size: 1.5rem;
         margin-top: 40px;
-        color: var(--secondary);
-        border-left: 5px solid var(--firebase);
-        padding-left: 15px;
-      }
-      h3 {
-        margin-top: 25px;
-        font-size: 1.2rem;
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
         gap: 10px;
       }
 
-      /* Code Blocks for Database */
+      .card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 25px;
+        border: 1px solid var(--border);
+        margin-bottom: 20px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      /* DATABASE VISUALIZATION */
       pre {
-        background: #1e1e1e;
-        color: #d4d4d4;
+        background: #1e293b;
+        color: #e2e8f0;
         padding: 20px;
         border-radius: 8px;
         overflow-x: auto;
-        font-family: "Consolas", "Monaco", monospace;
+        font-family: "Fira Code", "Consolas", monospace;
         font-size: 0.9rem;
-        border: 1px solid #333;
+        border: 1px solid #334155;
       }
-      .json-key {
-        color: #9cdcfe;
+      .key {
+        color: #38bdf8;
       }
-      .json-string {
-        color: #ce9178;
+      .string {
+        color: #a5f3fc;
       }
-      .json-number {
-        color: #b5cea8;
+      .number {
+        color: #bef264;
+      }
+      .comment {
+        color: #64748b;
+        font-style: italic;
       }
 
-      /* Role Cards (Job Desk) */
-      .job-card {
-        background: #fff;
+      /* JOB ROLES */
+      .role-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 20px;
+      }
+
+      .role-card {
+        background: var(--card-bg);
         border: 1px solid var(--border);
-        border-radius: 8px;
+        border-radius: 12px;
         padding: 25px;
-        margin-bottom: 20px;
-        transition: all 0.2s;
+        position: relative;
+        transition: transform 0.2s;
       }
-      .job-card:hover {
-        border-color: var(--primary);
-        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+
+      .role-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--laravel);
       }
-      .job-header {
+
+      .role-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 15px;
-        border-bottom: 1px solid #f1f5f9;
-        padding-bottom: 10px;
-      }
-      .job-title {
-        font-weight: bold;
-        font-size: 1.2rem;
-        color: var(--dark);
-      }
-      .job-tag {
-        font-size: 0.8rem;
-        background: var(--dark);
-        color: white;
-        padding: 2px 8px;
-        border-radius: 4px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--bg);
       }
 
-      ul.job-list {
-        padding-left: 20px;
+      .role-name {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.1rem;
+      }
+      .role-status {
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 6px;
+        text-transform: uppercase;
+      }
+
+      .status-done {
+        background: #dcfce7;
+        color: #166534;
+      }
+      .status-todo {
+        background: #ffedd5;
+        color: #9a3412;
+      }
+
+      ul {
         margin: 0;
+        padding-left: 20px;
       }
-      ul.job-list li {
+      li {
         margin-bottom: 8px;
+        font-size: 0.95rem;
       }
 
-      /* Alert Box */
-      .alert {
-        background: #ffffff;
-        border-left: 4px solid var(--laravel);
-        padding: 15px;
-        margin: 20px 0;
-        background-color: #fff5f5;
+      /* FOOTER */
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        color: #94a3b8;
+        font-size: 0.9rem;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
       }
 
       @media (max-width: 600px) {
-        .container {
+        .header {
           padding: 20px;
         }
         h1 {
           font-size: 1.8rem;
+        }
+        .role-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <header>
-        <span class="badge">Status: Foundation Ready (Backend Connected)</span>
-        <h1>Project Brief & Job Desk</h1>
-        <div class="subtitle">
-          CIATS: Cloud Inventory & Asset Tracking System
-        </div>
-      </header>
-
-      <div class="alert">
-        <strong>⚠️ PENTING UNTUK SEMUA ANGGOTA:</strong><br />
-        Backend dasar (Koneksi Laravel ke Firebase) sudah selesai dikerjakan
-        oleh Anggota 1. Silakan pull dari repository GitHub dan ikuti panduan
-        instalasi di grup WA/Discord agar bisa berjalan di laptop masing-masing.
+      <div class="header">
+        <h1>CIATS PROJECT BRIEF</h1>
+        <div class="subtitle">Cloud Inventory & Asset Tracking System</div>
+        <div class="tech-badge">🚀 Powered by Laravel 12 & Firebase</div>
       </div>
 
+      <!-- DATABASE SECTION -->
       <section>
-        <h2>1. Struktur Database (Firebase JSON Tree)</h2>
-        <p>
-          Agar coding kita sinkron, semua wajib menggunakan nama field/key
-          berikut ini. Jangan membuat nama kolom sendiri!
-        </p>
+        <h2>🗄️ Struktur Database (Firebase JSON)</h2>
+        <div class="card">
+          <p>
+            <strong>ATURAN WAJIB:</strong> Gunakan nama key (field) persis
+            seperti di bawah ini agar kode antar-anggota bisa tersambung.
+          </p>
 
-        <h3>📂 Node: users (Untuk Login)</h3>
-        <pre>
+          <p>
+            <strong>1. Node: <code>assets</code> (Data Barang)</strong>
+          </p>
+          <pre>
+{
+  "assets": {
+    "-Nklabc12345...": { <span class="comment">// Auto-generated Push ID</span>
+      <span class="key">"name"</span>: <span class="string">"MacBook Pro M1"</span>,
+      <span class="key">"category"</span>: <span class="string">"Elektronik"</span>,
+      <span class="key">"serial_number"</span>: <span class="string">"SN-APPLE-8899"</span>,
+      <span class="key">"location"</span>: <span class="string">"Gudang Utama - Rak A1"</span>,
+      <span class="key">"status"</span>: <span class="string">"available"</span>, <span class="comment">// Opsi: 'available', 'in_use', 'broken'</span>
+      <span class="key">"created_at"</span>: <span class="number">1709123456</span>,
+      <span class="key">"updated_at"</span>: <span class="number">1709123456</span>
+    }
+  }
+}</pre>
+
+          <p>
+            <strong>2. Node: <code>users</code> (Data Pengguna)</strong>
+          </p>
+          <pre>
 {
   "users": {
     "USER_PUSH_ID_001": {
-      <span class="json-key">"name"</span>: <span class="json-string">"Budi Santoso"</span>,
-      <span class="json-key">"email"</span>: <span class="json-string">"admin@ciats.com"</span>,
-      <span class="json-key">"password"</span>: <span class="json-string">"$2y$10$..."</span>, <span class="json-comment">// Hash by Laravel (Bcrypt)</span>
-      <span class="json-key">"role"</span>: <span class="json-string">"admin"</span>, <span class="json-comment">// Value: 'admin' atau 'operator'</span>
-      <span class="json-key">"created_at"</span>: <span class="json-number">1704812345</span>
+      <span class="key">"name"</span>: <span class="string">"Syam Admin"</span>,
+      <span class="key">"email"</span>: <span class="string">"admin@ciats.com"</span>,
+      <span class="key">"password"</span>: <span class="string">"$2y$12$..."</span>, <span class="comment">// Hasil Hash::make('password')</span>
+      <span class="key">"role"</span>: <span class="string">"admin"</span>, <span class="comment">// Opsi: 'admin', 'operator', 'employee'</span>
+      <span class="key">"created_at"</span>: <span class="number">1709111111</span>
     }
   }
 }</pre>
 
-        <h3>📦 Node: assets (Data Barang)</h3>
-        <pre>
-{
-  "assets": {
-    "-Nklabc12345": {
-      <span class="json-key">"name"</span>: <span class="json-string">"MacBook Pro M1"</span>,
-      <span class="json-key">"category"</span>: <span class="json-string">"Elektronik"</span>,
-      <span class="json-key">"serial_number"</span>: <span class="json-string">"SN-APPLE-8899"</span>,
-      <span class="json-key">"location"</span>: <span class="json-string">"Gudang Utama - Rak A"</span>,
-      <span class="json-key">"status"</span>: <span class="json-string">"available"</span>, <span class="json-comment">// Value: 'available', 'in_use', 'maintenance'</span>
-      <span class="json-key">"qr_code"</span>: <span class="json-string">"QR-8899"</span>
-    }
-  }
-}</pre>
-
-        <h3>🔄 Node: transactions (Riwayat Peminjaman)</h3>
-        <pre>
+          <p>
+            <strong
+              >3. Node: <code>transactions</code> (Riwayat Peminjaman)</strong
+            >
+          </p>
+          <pre>
 {
   "transactions": {
-    "-TrxID998877": {
-      <span class="json-key">"asset_id"</span>: <span class="json-string">"-Nklabc12345"</span>,
-      <span class="json-key">"user_id"</span>: <span class="json-string">"USER_PUSH_ID_002"</span>, <span class="json-comment">// Siapa yang memproses/meminjam</span>
-      <span class="json-key">"type"</span>: <span class="json-string">"checkout"</span>, <span class="json-comment">// Value: 'checkout' (keluar) atau 'checkin' (masuk)</span>
-      <span class="json-key">"notes"</span>: <span class="json-string">"Dipakai untuk event pameran"</span>,
-      <span class="json-key">"timestamp"</span>: <span class="json-number">1704900000</span>
+    "-TrxID998877...": {
+      <span class="key">"asset_id"</span>: <span class="string">"-Nklabc12345..."</span>, <span class="comment">// Relasi ke Assets</span>
+      <span class="key">"user_id"</span>: <span class="string">"USER_PUSH_ID_002"</span>, <span class="comment">// Siapa yang memproses</span>
+      <span class="key">"action"</span>: <span class="string">"checkout"</span>, <span class="comment">// Opsi: 'checkout' (keluar), 'checkin' (kembali)</span>
+      <span class="key">"notes"</span>: <span class="string">"Dipakai meeting di Lt 2"</span>,
+      <span class="key">"timestamp"</span>: <span class="number">1709222222</span>
     }
   }
 }</pre>
+        </div>
       </section>
 
+      <!-- ROLES & TASKS SECTION -->
       <section>
-        <h2>2. Pembagian Tugas & Panduan Teknis</h2>
-        <p>
-          Berikut adalah detail apa yang harus dikerjakan oleh masing-masing
-          anggota mulai hari ini:
-        </p>
-
-        <!-- ANGGOTA 1 -->
-        <div class="job-card" style="border-left: 5px solid #10b981">
-          <div class="job-header">
-            <div class="job-title">👤 Anggota 1 (Backend Core) - DONE ✅</div>
-            <span class="job-tag">Foundation</span>
+        <h2>👨‍💻 Pembagian Tugas & Instruksi (Laravel 12)</h2>
+        <div class="role-grid">
+          <!-- MEMBER 1 -->
+          <div class="role-card" style="border-top: 4px solid var(--success)">
+            <div class="role-header">
+              <div class="role-name">1. Backend Core (Lead)</div>
+              <div class="role-status status-done">SELESAI ✅</div>
+            </div>
+            <ul>
+              <li>Install Laravel 12 & Setup Repo.</li>
+              <li>Konfigurasi <code>kreait/laravel-firebase</code>.</li>
+              <li>Membuat <strong>AssetController</strong> (CRUD Lengkap).</li>
+              <li>Menyediakan route <code>/assets</code> sebagai contoh.</li>
+              <li><em>Tugas Lanjutan: Merge code teman-teman & deploy.</em></li>
+            </ul>
           </div>
-          <ul class="job-list">
-            <li>Setup Project Laravel & Koneksi Firebase (Selesai).</li>
-            <li>
-              Membuat <code>AssetController</code> dengan fitur CRUD dasar
-              (Selesai).
-            </li>
-            <li>
-              Menyediakan route dasar <code>/assets</code> untuk tim lain.
-            </li>
-            <li>
-              <strong>Next Task:</strong> Membantu Anggota 3 mengintegrasikan
-              logika transaksi.
-            </li>
-          </ul>
-        </div>
 
-        <!-- ANGGOTA 2 -->
-        <div class="job-card">
-          <div class="job-header">
-            <div class="job-title">👤 Anggota 2 (Frontend & UI)</div>
-            <span class="job-tag">Blade View</span>
+          <!-- MEMBER 2 -->
+          <div class="role-card" style="border-top: 4px solid var(--warning)">
+            <div class="role-header">
+              <div class="role-name">2. Frontend & UI/UX</div>
+              <div class="role-status status-todo">TODO 📝</div>
+            </div>
+            <ul>
+              <li>
+                <strong>Integrasi Template:</strong> Download template Admin
+                (AdminLTE/Stisla) dan pasang di Laravel.
+              </li>
+              <li>
+                <strong>Blade Layouts:</strong> Buat
+                <code>layouts/app.blade.php</code> (Sidebar, Header, Footer)
+                agar dinamis.
+              </li>
+              <li>
+                <strong>UI Polishing:</strong> Perbaiki tabel CRUD Asset yang
+                dibuat Anggota 1 agar terlihat profesional.
+              </li>
+              <li>
+                <strong>Dashboard:</strong> Buat halaman Home dengan Card
+                Statistik (Total Aset, Dipinjam, Rusak).
+              </li>
+            </ul>
           </div>
-          <p style="font-size: 0.9rem; color: #555">
-            Tugasmu mempercantik tampilan yang dibuat Anggota 1 dan membuat
-            tampilan baru.
-          </p>
-          <ul class="job-list">
-            <li>
-              <strong>Install Template Admin:</strong> Cari template HTML gratis
-              (AdminLTE/Stisla), lalu copy assets (CSS/JS) ke folder
-              <code>public</code>.
-            </li>
-            <li>
-              <strong>Layouting:</strong> Buat file
-              <code>layouts/app.blade.php</code> sebagai kerangka utama
-              (Sidebar, Navbar, Footer).
-            </li>
-            <li>
-              <strong>Halaman Index:</strong> Ubah tampilan tabel di
-              <code>assets/index.blade.php</code> agar terlihat profesional
-              (pakai DataTables jika bisa).
-            </li>
-            <li>
-              <strong>Mobile Responsiveness:</strong> Pastikan tabel dan tombol
-              bisa dibuka enak di HP (penting untuk fitur scan nanti).
-            </li>
-          </ul>
-        </div>
 
-        <!-- ANGGOTA 3 -->
-        <div class="job-card">
-          <div class="job-header">
-            <div class="job-title">👤 Anggota 3 (Tracking & QR)</div>
-            <span class="job-tag">Advanced Logic</span>
+          <!-- MEMBER 3 -->
+          <div class="role-card" style="border-top: 4px solid var(--warning)">
+            <div class="role-header">
+              <div class="role-name">3. Tracking & QR Code</div>
+              <div class="role-status status-todo">TODO 📝</div>
+            </div>
+            <ul>
+              <li>
+                <strong>QR Generator:</strong> Install library
+                <code>simple-qrcode</code>. Tampilkan QR di detail barang.
+              </li>
+              <li>
+                <strong>Transaction Logic:</strong> Buat fitur "Check-Out"
+                (Barang Keluar) dan "Check-In" (Barang Masuk). <br /><em
+                  >Logic: Update status di node 'assets', lalu catat di
+                  'transactions'.</em
+                >
+              </li>
+              <li>
+                <strong>Search:</strong> Fitur pencarian barang real-time.
+              </li>
+            </ul>
           </div>
-          <p style="font-size: 0.9rem; color: #555">
-            Kamu fokus di logika perpindahan barang.
-          </p>
-          <ul class="job-list">
-            <li>
-              <strong>Transaction Controller:</strong> Buat controller baru
-              untuk menangani logika "Peminjaman". <br /><em
-                >Logika: Saat dipinjam, update status di node 'assets' jadi
-                'in_use', lalu catat riwayat di node 'transactions'.</em
-              >
-            </li>
-            <li>
-              <strong>QR Code:</strong> Install library
-              <code>simplesoftwareio/simple-qrcode</code>. Tampilkan QR Code di
-              halaman detail barang.
-            </li>
-            <li>
-              <strong>Fitur Search:</strong> Buat fitur pencarian barang
-              berdasarkan serial number atau nama.
-            </li>
-          </ul>
-        </div>
 
-        <!-- ANGGOTA 4 -->
-        <div class="job-card">
-          <div class="job-header">
-            <div class="job-title">👤 Anggota 4 (Auth & Report)</div>
-            <span class="job-tag">Security & Output</span>
+          <!-- MEMBER 4 -->
+          <div class="role-card" style="border-top: 4px solid var(--warning)">
+            <div class="role-header">
+              <div class="role-name">4. Auth & Reporting</div>
+              <div class="role-status status-todo">TODO 📝</div>
+            </div>
+            <ul>
+              <li>
+                <strong>Login System:</strong> Buat Custom Login (Cek email/pass
+                ke Firebase).
+              </li>
+              <li>
+                <strong>Role Middleware:</strong> Cegah user 'Operator'
+                menghapus data penting (hanya Admin yang boleh).
+              </li>
+              <li>
+                <strong>User Management:</strong> Fitur bagi Admin untuk
+                menambah user baru (Operator/Karyawan).
+              </li>
+              <li>
+                <strong>Export PDF:</strong> Fitur cetak laporan stok aset.
+              </li>
+            </ul>
           </div>
-          <p style="font-size: 0.9rem; color: #555">
-            Kamu fokus mengamankan pintu masuk dan output data.
-          </p>
-          <ul class="job-list">
-            <li>
-              <strong>Login System:</strong> Buat halaman Login. Cek email &
-              password user ke node <code>users</code> di Firebase.
-            </li>
-            <li>
-              <strong>Role Middleware:</strong> Buat middleware untuk membedakan
-              'Admin' dan 'Operator'. <br /><em
-                >Admin boleh hapus data, Operator tidak boleh.</em
-              >
-            </li>
-            <li>
-              <strong>Create User (Admin Only):</strong> Buat fitur agar Admin
-              bisa menambah user baru (Operator/Karyawan).
-              <em>Ingat: Tidak ada fitur Register untuk publik.</em>
-            </li>
-            <li>
-              <strong>Export PDF:</strong> Install
-              <code>barryvdh/laravel-dompdf</code> untuk mencetak laporan stok.
-            </li>
-          </ul>
         </div>
       </section>
 
-      <footer
-        style="
-          margin-top: 50px;
-          text-align: center;
-          color: #64748b;
-          font-size: 0.9rem;
-        "
-      >
-        &copy; 2025 CIATS Team Document
-      </footer>
+      <div class="footer">
+        &copy; 2025 CIATS Development Team. Dokumen Internal.
+      </div>
     </div>
   </body>
 </html>
